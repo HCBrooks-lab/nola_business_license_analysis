@@ -1,19 +1,18 @@
 # New Orleans Business License Analysis
+**Project Type:** Exploratory Data Analysis (EDA)  
+**Dataset:** City of New Orleans Active Occupational Licenses  
+**Tools:** Python, Pandas, Matplotlib, Seaborn, Folium, VS Code  
+**Focus:** Identifying trends in business formation, industry distribution, and geographic clustering
 
 ## Project Overview
 
-This project explores occupational business license data from New Orleans to identify trends in local business activity. 
-- How business openings change over time.
-- Seasonal patterns (especially Q4).
-- The most common types of businesses.
-- Where businesses are concentrated across the city.
+This project explores occupational business license data from New Orleans to identify trends in local business activity over time. 
 
-The goal is to better understand how business activity evolves across the city and over time. 
+The analysis examines how business openings evolve annually, seasonal patterns in openings, most common business types, and geophrphic clustering across the city. 
 
 
 ## Problem Statement
-City planners, ecomonic analysts, and local policymakers often need to understand how business activity changes over time and where new businesses tend to cluster.
-
+City planners, ecomonic analysts, and local policymakers often need to understand how business activity evolves across time and location.
 Using business license data, this project investigates:
 - Long-term trends in business openings.
 - Seasonal patterns in business formation.
@@ -23,15 +22,26 @@ Using business license data, this project investigates:
 Understanding these patterns can support economic planning, zoning considerations, and local development strategies. 
 
 
+## Skills Demonstrated
+- Exploratory data analysis (EDA)
+- Data cleaning and transformation using Python
+- Time-series trend analysis
+- Industry and category aggregation
+- Geospatial visualization using Folium
+- Data visualization and insight communication
+
+
 ## Key Insights
-- Business creation shows long-term growth with noticeable year-to-year variation.
-- Q4 consistently shows elevated business formation, showing seasonal business planning and
-  tourism influence.
+- Business creation shows long-term growth with noticeable year-to-year
+  variation.
+- Q4 consistently shows elevated business formation, showing seasonal business
+  planning and tourism influence.
 - A small number of industries dominate new business registrations.
 - New businesses tend to cluster within specific commercial zones and ZIP codes.
 
 
 ## Methodology
+
 ### Extract
 The dataset was obtained from the City of New Orleans Active Occupational Licenses dataset. 
 
