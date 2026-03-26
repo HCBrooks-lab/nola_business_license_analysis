@@ -1,83 +1,106 @@
 # New Orleans Business License Analysis
+**Project Type:** Exploratory Data Analysis (EDA)  
+**Dataset:** City of New Orleans Active Occupational Licenses  
+**Tools:** Python, Pandas, Matplotlib, Seaborn, Folium, VS Code  
+**Focus:** Identifying trends in business formation, industry distribution, and geographic clustering
 
 ## Project Overview
 
-This project analyzes active business license data for the City of New Orleans to understand **business growth trends, seasonality, and geographic concentration**. The goal is to turn raw public records into clear, decision‑ready insights using Python, pandas, and data visuals.
+This project explores occupational business license data from New Orleans to identify trends in local business activity over time. 
 
-The analysis focuses on:
+The analysis examines how business openings evolve annually, seasonal patterns in openings, most common business types, and geophrphic clustering across the city. 
 
-* How business openings change over time.
-* Seasonal patterns (especially Q4 activity).
-* The most common types of businesses.
-* Where businesses are concentrated across the city.
 
----
+## Problem Statement
+City planners, ecomonic analysts, and local policymakers often need to understand how business activity evolves across time and location.
+Using business license data, this project investigates:
+- Long-term trends in business openings.
+- Seasonal patterns in business formation.
+- Industry concentrations.
+- Geographic clustering of new businesses.
+
+Understanding these patterns can support economic planning, zoning considerations, and local development strategies. 
+
+
+## Skills Demonstrated
+- Exploratory data analysis (EDA)
+- Data cleaning and transformation using Python
+- Time-series trend analysis
+- Industry and category aggregation
+- Geospatial visualization using Folium
+- Data visualization and insight communication
+
+
+## Key Insights
+- Business creation shows long-term growth with noticeable year-to-year
+  variation.
+- Q4 consistently shows elevated business formation, showing seasonal business
+  planning and tourism influence.
+- A small number of industries dominate new business registrations.
+- New businesses tend to cluster within specific commercial zones and ZIP codes.
+
+
+## Methodology
+
+### Extract
+The dataset was obtained from the City of New Orleans Active Occupational Licenses dataset. 
+
+### Transform
+Data preparation included:
+- Column name normalization.
+- Date parsing and formatting.
+- ZIP code cleanup.
+- Removal of incomplete records missing key identifiers.
+
+### Load
+The cleaned dataset was loaded into a working analysis environment for visualization and exploratory analysis. 
+
+
+## Visualizations
+
+### Business Starts Over Time (2000-2026)
+![Business Starts Over Time](images/businesses_started_yearly.png)
+This chart shows the number of new businesses started each year. It highlights long-term growth patterns and fluctuations in economic activity. 
+
+### Top 10 Business Types
+![Top 10 Business Types](images/top_10_business_types.png)
+This chart shows which industries most frequently launch businesses during Q4.
+
+### Geographic Density Map
+![Geographic Density Map](images/business_density_map.png)
+This map illustrates where new businesses cluster across New Orleans. Brighter or larger areas indicate higher concentrations of business activity. 
+
+
+
+## Tools & Technologies
+- Python
+- Pandas
+- Matplotlib
+- Seaborn
+- Folium (Geospatial mapping)
+- VS Code
+
 
 ## Dataset
+- Source: City of New Orleans - Active Occupational Licenses
+- Records: ~10,900 businesses
+- Time Range: 2000-2026
+- Granularity: Individual business license records
 
-* **Source:** City of New Orleans – Active Occupational Licenses
-* **Records:** ~10,900 businesses
-* **Time Range:** 2000–2026
-* **Granularity:** Individual business license records
 
-Basic cleaning was performed before analysis (column normalization, date parsing, ZIP cleanup, and removal of records missing required identifiers).
+## Limitations & Future Improvements
+- Expand analysis to include additional demographic or economic indicators.
+- Compare business trends with tourism and economic data.
+- Add interactive dashboards for exploration.
+- Perform deeper industry-specific trend analysis.
 
----
 
-## Key Analysis & Visuals
+## Live Interactive Site
+Explore the interactive dashboards and maps here:
+  
+**[https://HCBrooks-lab.github.io/nola_occ_licenses25/](https://hcbrooks-lab.github.io/nola_occ_lic26/)**
 
-### 1. Business Starts Over Time - Yearly (2000–2026)
 
-This chart shows how many new businesses started each year. It highlights long‑term growth patterns and year‑to‑year fluctuations rather than focusing on individual business details.
+## Author
+H. Brooks
 
-![Businesses Starts Yearly](images/businesses_started_yearly.png)
-
----
-
-### 2. Q4 Business Starts by Year - Q4 of Each Year
-
-This chart focuses only on **Q4 (October–December)** business starts. Looking at Q4 separately helps reveal seasonal behavior tied to tourism, holidays, and year‑end planning.
-
-![Q4 Business Starts by Year](images/q4_business_starts_by_year.png)
-
----
-
-### 3. Top 10 Business Types in Q4 (2000–2026)
-
-This bar chart shows the **most common business types that start during Q4** across all years. It highlights which industries are most active at year‑end.
-
-![Top 10 Q4 Business Types](images/q4_top_10_business_types.png)
-
----
-
-### 4. Geographic Business Density Map
-
-This map shows where new businesses tend to cluster across New Orleans. Areas with larger or brighter circles indicate higher concentrations of business activity.
-
-![Business Density Heatmap](images/business_density_map.png)
-
----
-
-## Tools & Skills Used
-
-* **Python** (pandas, matplotlib, seaborn)
-* **Data Cleaning & Validation**
-* **Time‑Series Analysis**
-* **Geospatial Visualization (Folium heatmaps)**
-* **Data Storytelling & Documentation**
-
----
-
-## Key Takeaways
-
-* Business activity shows clear **seasonal patterns**, with Q4 playing a significant role.
-* A small number of business types account for a large share of licenses.
-* Business density is **highly concentrated in specific ZIP codes**, reflecting commercial
-  hubs.
-* Long‑term trends provide more insight than single‑year changes.
-
----
-
-## Notes
-
-This project emphasizes **clarity over complexity**. Each chart answers a specific question, and overlapping visuals were intentionally avoided to keep the analysis focused and readable.
