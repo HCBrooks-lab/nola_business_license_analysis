@@ -56,18 +56,27 @@ Data preparation included:
 The cleaned dataset was loaded into a working analysis environment for visualization and exploratory analysis. 
 
 
-## Visualizations
+## 📊 Visualizations
 
-### Business Starts Over Time 
+### 📈 Business Starts Over Time (2000–2025)
 ![Business Starts Over Time](images/business_starts_by_year.png)
+
 This chart shows the number of new business licenses issued each year from 2000 to 2025. It highlights long-term growth trends and fluctuations in business activity across New Orleans.
 
-### Top 10 Business Types in New Orleans
-![Top 10 Business Types in New Orleans](images/top_10_business_types.png)
+---
+
+### 📊 Top 10 Business Types in New Orleans
+![Top 10 Business Types](images/top_10_business_types.png)
+
 This chart highlights the most frequently occurring business categories, showing which industries have the strongest overall presence in the local business landscape.
 
-### Geographic Distribution of Businesses
+---
+
+### 🗺️ Geographic Distribution of Businesses
+![Business Density Map](images/business_density_map.png)
+
 This map illustrates where licensed businesses are concentrated across New Orleans. Areas with higher density indicate stronger commercial activity.
+
 [View Interactive Map](docs/business_density_map.html)
 
 
