@@ -62,8 +62,8 @@ The cleaned dataset was loaded into a working analysis environment for visualiza
 ![Business Starts Over Time](images/businesses_started_yearly.png)
 This chart shows the number of new businesses started each year. It highlights long-term growth patterns and fluctuations in economic activity. 
 
-### Top 10 Business Types
-![Top 10 Business Types](images/top_10_business_types.png)
+### Top 10 Business Types in New Orleans
+![Top 10 Business Types in New Orleans](images/top_10_business_types.png)
 This chart shows which industries most frequently launch businesses during Q4.
 
 ### Geographic Density Map
