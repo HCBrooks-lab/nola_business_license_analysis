@@ -101,11 +101,6 @@ This map illustrates where licensed businesses are concentrated across New Orlea
 - Perform deeper industry-specific trend analysis.
 
 
-## Live Interactive Site
-Explore the interactive dashboards and maps here:
-  
-**[https://HCBrooks-lab.github.io/nola_occ_licenses25/](https://hcbrooks-lab.github.io/nola_occ_lic26/)**
-
 
 ## Author
 H. Brooks
