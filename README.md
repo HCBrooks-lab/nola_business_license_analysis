@@ -1,11 +1,14 @@
 # New Orleans Business License Analysis
+## Live Project
+[View Full Interactive Project (GitHub Pages)](https://hcbrooks-lab.github.io/nola_business_license_analysis/)
+
+
 **Project Type:** Exploratory Data Analysis (EDA)  
 **Dataset:** City of New Orleans Active Occupational Licenses  
 **Tools:** Python, Pandas, Matplotlib, Seaborn, Folium, VS Code  
 **Focus:** Identifying trends in business formation, industry distribution, and geographic clustering
 
 ## Project Overview
-
 This project explores occupational business license data from New Orleans to identify trends in local business activity over time. 
 
 The analysis examines how business openings evolve annually, seasonal patterns in openings, most common business types, and geophrphic clustering across the city. 
