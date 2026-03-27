@@ -77,7 +77,7 @@ This chart highlights the most frequently occurring business categories, showing
 
 This map illustrates where licensed businesses are concentrated across New Orleans. Areas with higher density indicate stronger commercial activity.
 *View the interactive map on GitHub Pages:*  
-[Open Interactive Business Density Map](https://hcbrookslab.github.io/nola_business_license_analysis/business_density_map.html)
+[Open Interactive Business Density Map]([https://hcbrookslab.github.io/nola_business_license_analysis/business_density_map.html])
 
 ## Tools & Technologies
 - Python
