@@ -59,7 +59,7 @@ The cleaned dataset was loaded into a working analysis environment for visualiza
 ## Visualizations
 
 ### Business Starts Over Time (2000–2025)
-![Business Starts Over Time](images/business_starts_by_year.png)
+![Business Starts Over Time](images/business_type_trends_over_time.png)
 
 This chart shows the number of new business licenses issued each year from 2000 to 2025. It highlights long-term growth trends and fluctuations in business activity across New Orleans.
 
@@ -73,7 +73,7 @@ This chart highlights the most frequently occurring business categories, showing
 ---
 
 ### Geographic Distribution of Businesses
-![Business Density Map](images/business_density_map.png)
+![Business Density Map](images/business_density_heatmap.png)
 
 This map illustrates where licensed businesses are concentrated across New Orleans. Areas with higher density indicate stronger commercial activity.
 *Interactive map available upon deployment (GitHub Pages).*
