@@ -135,29 +135,32 @@
 
     .hero-buttons {
       display: flex;
-      gap: 14px;
+      gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 20px;
-      border-radius: 12px;
-      font-weight: 700;
-      transition: 0.2s ease;
-      border: 2px solid transparent;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 250px;
+        padding: 18px 28px;
+        border-radius: 18px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: 0.2s ease;
     }
 
     .btn-primary {
-      background: var(--primary);
-      color: white;
+      background: #2952d5;
+      color: #ffffff;
+      border: none;
     }
 
     .btn-primary:hover {
-      background: var(--primary-dark);
+      background: #1f45bf;
     }
 
     .btn-secondary {
