@@ -3,204 +3,663 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NOLA Business License Interactive Maps & Visuals</title>
-
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <title>New Orleans Business License Analysis</title>
+  <meta
+    name="description"
+    content="A data analysis and interactive mapping project exploring business activity, density, and licensing trends across New Orleans."
+  />
   <style>
-    body {
+    :root {
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --surface-soft: #eef2f7;
+      --text: #162033;
+      --muted: #5c677d;
+      --primary: #1d4ed8;
+      --primary-dark: #153ea8;
+      --border: #dbe2ea;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 20px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: "Poppins", sans-serif;
-      background: #f7f7f7;
-      color: #333;
     }
 
-    header {
-      background: #111827;
-      padding: 40px 20px;
-      text-align: center;
-      color: white;
+    html {
+      scroll-behavior: smooth;
     }
 
-    h1 {
-      font-size: 2.4rem;
-      margin: 0;
-      font-weight: 600;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    p.subtitle {
-      font-size: 1.1rem;
-      margin-top: 10px;
-      font-weight: 300;
-      opacity: 0.85;
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 14px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
     .container {
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 0 20px;
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
     }
 
-    h2 {
-      font-size: 1.6rem;
+    .site-header {
+      background: #081528;
+      color: white;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #dbe7ff;
       font-weight: 600;
-      margin-bottom: 15px;
-      color: #111827;
+      font-size: 0.95rem;
     }
 
-    ul.map-list {
-      list-style: none;
-      padding: 0;
+    .nav-links a:hover {
+      color: #ffffff;
     }
 
-    ul.map-list li {
-      background: white;
-      margin: 15px 0;
-      border-radius: 10px;
-      padding: 18px 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    .hero {
+      background: linear-gradient(135deg, #081528 0%, #0c1f3d 100%);
+      color: white;
+      padding: 80px 0 70px;
     }
 
-    ul.map-list li:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.10);
-    }
-
-    ul.map-list li a {
-      text-decoration: none;
-      color: #2563eb;
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-
-    .caption {
-      font-size: 0.9rem;
-      font-style: italic;
-      color: #555;
-      margin-top: 0.5rem;
-    }
-
-    .chart-img {
-      width: 100%;
-      max-width: 700px;   
-      height: auto;
-      display: block;
-      margin: 0.75rem auto;
-    }
-
-    .visual-grid{
+    .hero-content {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      color: #dbe7ff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #d7def0;
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 14px;
+    }
+
+    .metric-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .metric-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+    }
+
+    .metric-card p {
+      color: #d7def0;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 1rem;
+    }
+
+    .overview-grid,
+    .insight-grid,
+    .project-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .tools-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .tools-list li {
+      background: var(--surface-soft);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .featured-map {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 24px;
+      align-items: stretch;
+    }
+
+    .featured-map img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 350px;
+      border: 1px solid var(--border);
+    }
+
+    .featured-map .card p + p {
+      margin-top: 14px;
+    }
+
+    .visuals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .visual-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .visual-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .visual-card-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .visual-card h3 {
+      font-size: 1.2rem;
+    }
+
+    .visual-card p {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .visual-link {
+      margin-top: auto;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .insight-card {
+      background: var(--surface);
+      border-left: 5px solid var(--primary);
+    }
+
+    .project-link-card a {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .footer {
+      background: #081528;
+      color: #dbe7ff;
+      padding: 30px 0;
       margin-top: 20px;
     }
 
-    .visual-card{
-      background: #fff;
-      border-radius: 18px;
-      padding: 18px 18px 14px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-    }
-
-    .visual-card h3{
-      margin: 0 0 10px 0;
-    }  
-
-    .chart-img{
-      width: 100%;
-      max-width: 700px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      border-radius: 10px;
-    }
-
-    .caption{
-      margin-top: 10px;
+    .footer p {
       font-size: 0.95rem;
-      font-style: italic;
-      color: #555;
     }
 
-     footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 40px 0;
-      color: #666;
+    @media (max-width: 980px) {
+      .hero-content,
+      .featured-map,
+      .overview-grid,
+      .visuals-grid,
+      .insight-grid,
+      .project-links-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 64px;
+        padding-bottom: 56px;
+      }
     }
-    
+
+    @media (max-width: 640px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+    }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>NOLA Business License Interactive Maps & Visuals</h1>
-    <p class = "subtitle">Explore business activity, density, and spatial trends across New Orleans.</p>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">Hallene Brooks | Data Portfolio</div>
+      <nav class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#map">Interactive Map</a>
+        <a href="#visuals">Visuals</a>
+        <a href="#insights">Insights</a>
+        <a href="#links">Project Links</a>
+      </nav>
+    </div>
   </header>
 
-  <div class = "container">
-    <h2>Select a Map:</h2>
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div>
+          <span class="eyebrow">Featured Project</span>
+          <h1>New Orleans Business License Analysis</h1>
+          <p>
+            A portfolio project focused on exploratory data analysis and geographic
+            visualization of business license activity across New Orleans. This project
+            highlights business concentration, category distribution, and longer-term
+            licensing trends.
+          </p>
 
-    <ul class="map-list">
-      <li><a href = "business_density_map.html">Business Density Cluster Map</a></li>
-      <li><a href = "business_heatmap.html">Clustered Business Heatmap</a></li>
-      <li><a href = "zip_map.html">Business Type by ZIP Code - Heatmap Summary</a></li>
-    </ul>
+          <div class="hero-buttons">
+            <a href="interactive_map.html" class="btn btn-primary">View Interactive Map</a>
+            <a href="https://github.com/YOUR-USERNAME/YOUR-REPO-NAME" target="_blank" class="btn btn-secondary">View GitHub Repository</a>
+            <a href="#visuals" class="btn btn-secondary">See Project Visuals</a>
+          </div>
+        </div>
 
-    <h2>Other Charts & Visuals</h2>
-<p>These charts highlight a few key trends from the New Orleans business license dataset.</p>
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <h3>EDA</h3>
+            <p>Exploratory analysis of business license activity and category patterns</p>
+          </div>
+          <div class="metric-card">
+            <h3>Mapping</h3>
+            <p>Interactive geographic view of business density across the city</p>
+          </div>
+          <div class="metric-card">
+            <h3>Storytelling</h3>
+            <p>Insights designed for recruiter-friendly presentation and interpretation</p>
+          </div>
+          <div class="metric-card">
+            <h3>Portfolio</h3>
+            <p>Built to demonstrate job-ready junior analyst skills in a public project</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="visual-grid">
+    <section id="overview">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Project Overview</h2>
+          <p>
+            This project examines New Orleans business license data to better understand
+            where business activity is concentrated, which business categories appear most
+            often, and how licensing patterns change over time.
+          </p>
+        </div>
 
-  <div class="visual-card">
-    <h3>Businesses Started by Year</h3>
+        <div class="overview-grid">
+          <div class="card">
+            <h3>Objective</h3>
+            <p>
+              Analyze business license data to identify key sector trends, business density
+              patterns, and time-based shifts in licensing activity across New Orleans.
+            </p>
+          </div>
 
-    <a href="businesses_started_yearly.png" target="_blank" rel="noopener">
-      <img
-        src="businesses_started_yearly.png"
-        alt="Businesses started by year chart"
-        class="chart-img"
-      >
-    </a>
+          <div class="card">
+            <h3>Tools Used</h3>
+            <ul class="tools-list">
+              <li>Python</li>
+              <li>Pandas</li>
+              <li>Jupyter Notebook</li>
+              <li>Matplotlib</li>
+              <li>Plotly / Folium</li>
+              <li>HTML / CSS</li>
+              <li>GitHub Pages</li>
+            </ul>
+          </div>
 
-    <p class="caption">Shows how many new businesses opened each year.</p>
-  </div>
+          <div class="card">
+            <h3>What This Project Shows</h3>
+            <p>
+              This project demonstrates data cleaning, exploratory analysis, visual
+              communication, and public-facing presentation of findings in a format that
+              is easy for recruiters and hiring managers to review.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="visual-card">
-    <h3>Top 5 Business Types</h3>
+    <section id="map">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Interactive Map</h2>
+          <p>
+            The interactive map is the main feature of this project and highlights where
+            licensed businesses are concentrated across New Orleans.
+          </p>
+        </div>
 
-    <a href="top5_common_business_types.png" target="_blank" rel="noopener">
-      <img
-        src="top5_common_business_types.png"
-        alt="Top 5 most common business types chart"
-        class="chart-img"
-      >
-    </a>
+        <div class="featured-map">
+          <img src="images/business_density_map.png" alt="Preview of the New Orleans business density map" />
 
-    <p class="caption">Shows the five most common business types operating in New Orleans.</p>
-  </div>
+          <div class="card">
+            <h3>Business Density Map</h3>
+            <p>
+              This interactive map visualizes the concentration of licensed businesses
+              across New Orleans and helps reveal areas of higher commercial activity.
+            </p>
+            <p>
+              Rather than listing businesses one by one, the map provides a spatial view
+              of the dataset so viewers can quickly identify clustering and density
+              patterns.
+            </p>
+            <p>
+              <a href="interactive_map.html" class="btn btn-primary">Open Interactive Map</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="visual-card">
-    <h3>Year-over-Year Growth Trend</h3>
+    <section id="visuals">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Featured Visuals</h2>
+          <p>
+            These visuals support the broader analysis by showing leading business
+            categories, geographic business concentration, and changes in activity over time.
+          </p>
+        </div>
 
-    <a href="yoy_business_growth_trend.png" target="_blank" rel="noopener">
-      <img
-        src="yoy_business_growth_trend.png"
-        alt="Year-over-year business growth trend chart"
-        class="chart-img"
-      >
-    </a>
+        <div class="visuals-grid">
+          <article class="visual-card">
+            <img src="images/top_10_business_types.png" alt="Top 10 business types chart" />
+            <div class="visual-card-content">
+              <h3>Top 10 Business Types</h3>
+              <p>
+                Highlights the most common licensed business categories in the dataset,
+                helping identify which sectors appear most often in New Orleans.
+              </p>
+              <a href="images/top_10_business_types.png" target="_blank" class="visual-link">Open full image</a>
+            </div>
+          </article>
 
-    <p class="caption">Displays how business growth has increased or slowed over time.</p>
-  </div>
+          <article class="visual-card">
+            <img src="images/business_density_map_preview.png" alt="Business density map preview" />
+            <div class="visual-card-content">
+              <h3>Business Density Map</h3>
+              <p>
+                Provides a geographic view of business concentration and shows where
+                licensed activity appears to cluster across the city.
+              </p>
+              <a href="interactive_map.html" class="visual-link">View interactive version</a>
+            </div>
+          </article>
 
-</div>
+          <article class="visual-card">
+            <img src="images/business_trends_over_time.png" alt="Business trends over time chart" />
+            <div class="visual-card-content">
+              <h3>Business Trends Over Time</h3>
+              <p>
+                Shows how business license activity changes over time, helping surface
+                longer-term patterns, shifts, and possible growth periods.
+              </p>
+              <a href="images/business_trends_over_time.png" target="_blank" class="visual-link">Open full image</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <footer class="site-footer">
-  <p>© 2026 HC Brooks · Data Projects & Visual Analytics</p>
-  <p class="footer-sub">New Orleans Business License Analysis</p>
-    </footer>
+    <section id="insights">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Key Insights</h2>
+          <p>
+            The analysis is intended to move beyond charts alone by providing a concise,
+            recruiter-friendly summary of what the visuals suggest.
+          </p>
+        </div>
 
+        <div class="insight-grid">
+          <div class="card insight-card">
+            <h3>Category Concentration</h3>
+            <p>
+              A relatively small group of business categories appears repeatedly in the
+              dataset, suggesting that certain sectors account for a large share of
+              licensed activity.
+            </p>
+          </div>
+
+          <div class="card insight-card">
+            <h3>Geographic Clustering</h3>
+            <p>
+              Business activity is not evenly distributed. The map helps reveal areas
+              where licensed businesses appear more concentrated, indicating stronger
+              commercial clustering in specific parts of the city.
+            </p>
+          </div>
+
+          <div class="card insight-card">
+            <h3>Trend Visibility</h3>
+            <p>
+              Time-based analysis adds useful context by showing whether business license
+              activity appears stable, rising, or fluctuating across the available years.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="links">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Project Links</h2>
+          <p>
+            Keep your most important links easy to find so a recruiter can review the
+            project quickly.
+          </p>
+        </div>
+
+        <div class="project-links-grid">
+          <div class="card project-link-card">
+            <h3>GitHub Repository</h3>
+            <p>
+              Access the code, project structure, and supporting files used to build this
+              analysis.
+            </p>
+            <p>
+              <a href="https://github.com/YOUR-USERNAME/YOUR-REPO-NAME" target="_blank">Open repository</a>
+            </p>
+          </div>
+
+          <div class="card project-link-card">
+            <h3>Interactive Map</h3>
+            <p>
+              Open the live interactive map to explore the business density view directly.
+            </p>
+            <p>
+              <a href="interactive_map.html">Open interactive map</a>
+            </p>
+          </div>
+
+          <div class="card project-link-card">
+            <h3>Analysis Notebook</h3>
+            <p>
+              Link to the notebook or exported analysis summary when ready.
+            </p>
+            <p>
+              <a href="https://github.com/YOUR-USERNAME/YOUR-REPO-NAME/blob/main/notebooks/YOUR-NOTEBOOK.ipynb" target="_blank">Open notebook</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>
+        Built by Hallene Brooks as part of a public data analytics portfolio focused on
+        exploratory analysis, data storytelling, and interactive visuals.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
