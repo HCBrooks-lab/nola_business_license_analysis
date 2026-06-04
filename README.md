@@ -83,7 +83,7 @@ Business activity is heavily concentrated within key commercial corridors and ZI
 
 ## Dataset
 - Source: City of New Orleans - Active Occupational Licenses
-- Records: ~10,900 businesses
+- Records: ~10,900 business license records
 - Time Range: 2000-2026
 - Analysis Time Range: 2000-2025
 - Granularity: Individual business license records
