@@ -55,10 +55,17 @@ The analysis followed a data preparation and exploration process:
 - Performed time-series analysis to evaluate long-term business opening trends. 
 - Aggregated business categories to identify the most common industries.
 - Created geospatial visuals to examine business concentration across the city of New Orleans.
-- Developed static and interactive visuals to communicate key findings. 
+- Developed static and interactive visuals to communicate key findings.
+
+## Tools & Technologies
+- Python
+- Pandas
+- Matplotlib
+- Seaborn
+- Folium (Geospatial Analysis)
+- VS Code
 
 ## Visualizations
-
 ### Business Starts Over Time (2000–2025)
 This analysis reveals continued long-term growth in business openings across New Orleans, despite periodic year-to-year fluctuations. 
 ![Business Starts Over Time](docs/images/business_type_trends_over_time.png)
@@ -78,13 +85,6 @@ Business activity is heavily concentrated within key commercial corridors and ZI
 *View the interactive map on GitHub Pages:*  
 [Open Interactive Business Density Map](https://hcbrooks-lab.github.io/nola_business_license_analysis/business_density_map.html)
 
-## Tools & Technologies
-- Python
-- Pandas
-- Matplotlib
-- Seaborn
-- Folium (Geospatial Analysis)
-- VS Code
 
 ## Dataset
 - Source: City of New Orleans - Active Occupational Licenses
