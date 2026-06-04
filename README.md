@@ -31,7 +31,12 @@ Using time-series analysis, category aggregation and geospatial visuals, the pro
 - A small number of industries dominate new business registrations.
 - New businesses tend to cluster within specific commercial zones and ZIP codes.
 - Vendor and event-related business categories experienced notable growth in recent
-  years. 
+  years.
+
+## Recommendations
+- Monitor commercial zones with growth to better anticipate zoning and infrastructure needs.
+- Allocate seasonal permitting resources around elevated Q4 business formation periods.
+- Investigate rapidly vendor and event-related categories to support economic planning initiatives. 
 
 ## Skills Demonstrated
 - Exploratory Data Analysis (EDA)
