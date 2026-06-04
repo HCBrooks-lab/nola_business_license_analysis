@@ -1,38 +1,27 @@
 # New Orleans Business License Analysis
-## Live Project
+
+## Business Problem
+City planners, economic analysts, and local stakeholders often need to understand how business activity changes across time and geography to support ecomonic development decisions
+
+This project analyzes active business license data from New Orleans to identify long-term business growth trends, seasonal patterns, industry concentration and geographic clustering. 
+
+
+## Key Findings
+- Business openings show sustained long-term growth with noticeable year-to-year variation.
+- Q4 consistently demonstrates elevated business creation activity.
+- Business activity clusters heavily within specific commercial zones and ZIP Codes.
+- Vendor and even-related categories experienced significant growth in recent years. 
+
+## Interactive Project
 [View Full Interactive Project (GitHub Pages)](https://hcbrooks-lab.github.io/nola_business_license_analysis/)
 
-
-**Project Type:** Exploratory Data Analysis (EDA)  
-**Dataset:** City of New Orleans Active Occupational Licenses  
-**Tools:** Python, Pandas, Matplotlib, Seaborn, Folium, VS Code  
-**Focus:** Identifying trends in business formation, industry distribution, and geographic clustering
+## Project Snapshot
+Analyzed approximately 10,900 business license records from 2000-2025 using Python visualization tools, and geospatial mapping to evaluate business opening trends across New Orleans. 
 
 ## Project Overview
-This project explores occupational business license data from New Orleans to identify trends in local business activity over time. 
+This project analyzes active business license records from New Orleans to examine how business activity changes across time, industry categories, and geographic regions. 
 
-The analysis examines how business openings evolve annually, seasonal patterns in openings, most common business types, and geophrphic clustering across the city. 
-
-
-## Problem Statement
-City planners, ecomonic analysts, and local policymakers often need to understand how business activity evolves across time and location.
-Using business license data, this project investigates:
-- Long-term trends in business openings.
-- Seasonal patterns in business formation.
-- Industry concentrations.
-- Geographic clustering of new businesses.
-
-Understanding these patterns can support economic planning, zoning considerations, and local development strategies. 
-
-
-## Skills Demonstrated
-- Exploratory data analysis (EDA)
-- Data cleaning and transformation using Python
-- Time-series trend analysis
-- Industry and category aggregation
-- Geospatial visualization using Folium
-- Data visualization and insight communication
-
+Using time-series analysis, category aggregation and geospatial visuals, the project explores where business formation is concentrated and how local business trends evolved between 2000-2025. 
 
 ## Key Insights
 - Business creation shows long-term growth with noticeable year-to-year
@@ -44,55 +33,53 @@ Understanding these patterns can support economic planning, zoning consideration
 - Vendor and event-related business categories experienced notable growth in recent
   years. 
 
+## Skills Demonstrated
+- Exploratory Data Analysis (EDA)
+- Data Cleaning and Transformation (Python/Pandas)
+- Time-series Trend Analysis
+- Business Category and Industry Analysis
+- Geospatial Analysis and Mapping (Folium)
+- Data Visualization and Storytelling
+- Insights and Business Recommendations 
 
 ## Methodology
-
-### Extract
-The dataset was obtained from the City of New Orleans Active Occupational Licenses dataset. 
-
-### Transform
-Data preparation included:
-- Column name normalization.
-- Date parsing and formatting.
-- ZIP code cleanup.
-- Removal of incomplete records missing key identifiers.
-
-### Load
-The cleaned dataset was loaded into a working analysis environment for visualization and exploratory analysis. 
-
+The analysis followed a data preparation and exploration process:
+- Collected active business license records from the City of New Orleans open data portal.
+- Cleaned and standardized business, date, and location fields.
+- Removed incomplete records and corrected formatting inconsistencies.
+- Performed time-series analysis to evaluate long-term business opening trends. 
+- Aggregated business categories to identify the most common industries.
+- Created geospatial visuals to examine business concentration across the city of New Orleans.
+- Developed static and interactive visuals to communicate key findings. 
 
 ## Visualizations
 
 ### Business Starts Over Time (2000–2025)
+This analysis reveals continued long-term growth in business openings across New Orleans, despite periodic year-to-year fluctuations. 
 ![Business Starts Over Time](docs/images/business_type_trends_over_time.png)
-
-This chart shows the number of new business licenses issued each year from 2000 to 2025. It highlights long-term growth trends and fluctuations in business activity across New Orleans.
 
 ---
 
 ### Top 10 Business Types in New Orleans
+Business activity is concentrated within a relatively small number of industry categories. Understanding which sectors dominate new registrations can help identify areas of economic strength and opportunities for future development. 
 ![Top 10 Business Types](docs/images/top_10_business_types.png)
-
-This chart highlights the most frequently occurring business categories, showing which industries have the strongest overall presence in the local business landscape.
 
 ---
 
 ### Geographic Distribution of Businesses
+Business activity is heavily concentrated within key commercial corridors and ZIP code regions throughout New Orleans. Geographic clustering helps identify areas with stronger commercial presence and highlights where economic development activity is most active. 
 ![Business Density Map](docs/images/business_density_heatmap.png)
 
-This map illustrates where licensed businesses are concentrated across New Orleans. Areas with higher density indicate stronger commercial activity.
 *View the interactive map on GitHub Pages:*  
 [Open Interactive Business Density Map](https://hcbrooks-lab.github.io/nola_business_license_analysis/business_density_map.html)
-
 
 ## Tools & Technologies
 - Python
 - Pandas
 - Matplotlib
 - Seaborn
-- Folium (Geospatial mapping)
+- Folium (Geospatial Analysis)
 - VS Code
-
 
 ## Dataset
 - Source: City of New Orleans - Active Occupational Licenses
@@ -102,11 +89,10 @@ This map illustrates where licensed businesses are concentrated across New Orlea
 
 
 ## Limitations & Future Improvements
-- Expand analysis to include additional demographic or economic indicators.
-- Compare business trends with tourism and economic data.
-- Add interactive dashboards for exploration.
-- Perform deeper industry-specific trend analysis.
-
+- Incorporate demographic and economic indicators to better understand factors influencing business growth
+- Compare business formation trends with tourism, employment, and economic development data.
+- Expand geographic analysis to evaluate business activity at the neighborhood and ZIP code level.
+- Conduct deeper industry-specific trend analysis to identify emerging business sectors. 
 
 
 ## Author
