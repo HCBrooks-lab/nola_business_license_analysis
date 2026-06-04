@@ -42,6 +42,7 @@ Using time-series analysis, category aggregation and geospatial visuals, the pro
 - Exploratory Data Analysis (EDA)
 - Data Cleaning and Transformation (Python/Pandas)
 - Time-series Trend Analysis
+- SQL Querying
 - Business Category and Industry Analysis
 - Geospatial Analysis and Mapping (Folium)
 - Data Visualization and Storytelling
